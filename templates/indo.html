@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>CSV Data</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Name:{{name}}</th>
+                <th>Age: {{age}}</th>
+                <th>Location: {{location}}</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for row in data %}
+            <tr>
+                <td>{{ row['Name'] }}</td>
+                <td>{{ row['Age'] }}</td>
+                <td>{{ row['Location'] }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <form action="/upload" method="post" enctype="multipart/form-data">
+        <label for="myfile">Select a file:</label>
+        <input type="file" id="myfile" name="myfile" accept=".csv">
+        <input type="submit" value="Submit">
+    </form>
+</body>
+</html>
